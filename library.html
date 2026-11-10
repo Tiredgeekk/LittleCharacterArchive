@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Library | The Little Character Library</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="archive.js" defer></script>
+</head>
+
+<body class="library-page">
+  <div class="site-wrap">
+
+    <header class="site-header paper-panel">
+      <p class="eyebrow">✿ THE LITTLE CHARACTER LIBRARY ✿</p>
+      <h1 class="site-title">The Library</h1>
+      <p class="site-subtitle">A catalogue of characters, stories, and little lives.</p>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About This Place</a>
+        <a class="nav-link active" href="library.html">The Library</a>
+      </nav>
+
+      <span class="tape tape-top-left" aria-hidden="true"></span>
+      <span class="tape tape-top-right" aria-hidden="true"></span>
+    </header>
+
+    <main>
+
+      <section class="library-intro paper-panel">
+        <p class="eyebrow">THE COLLECTION</p>
+        <h2>Take a look around!</h2>
+        <p>
+          Every character has a little book of their own. Browse the shelves,
+          search for someone specific, or simply see who catches your eye.
+        </p>
+        <p class="handwritten">No overdue books here. Promise. ♡</p>
+      </section>
+
+      <section class="library-controls paper-panel">
+        <label for="character-search">Find a character</label>
+        <input
+          type="search"
+          id="character-search"
+          placeholder="Search names, species, or keywords..."
+        >
+
+        <p class="filter-heading">Browse by category</p>
+
+        <div class="filter-buttons" id="category-filters">
+          <button class="filter-button active" data-category="all">All characters</button>
+          <button class="filter-button" data-category="dnd">D&D</button>
+          <button class="filter-button" data-category="original">Original characters</button>
+          <button class="filter-button" data-category="other">Other</button>
+        </div>
+      </section>
+
+      <section class="library-shelf">
+        <div class="shelf-heading">
+          <h2>On the shelves</h2>
+          <span class="handwritten" id="character-count">A little collection</span>
+        </div>
+
+        <div class="character-grid" id="character-grid">
+
+          <!-- Character cards are added here automatically by archive.js -->
+
+        </div>
+
+        <div class="empty-library paper-panel" id="empty-library">
+          <span class="empty-icon">📖</span>
+          <h3>The shelves are waiting!</h3>
+          <p>
+            There aren't any characters on this shelf just yet.
+            Once you add them to the archive, they'll appear here.
+          </p>
+          <p class="handwritten">Something wonderful is being written...</p>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>✿ The Little Character Library ✿</p>
+      <p><a href="index.html">Back to the welcome desk</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
