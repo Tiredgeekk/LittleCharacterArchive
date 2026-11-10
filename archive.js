@@ -12,7 +12,7 @@ const characters = [
   //   subtitle: "A little description or quote.",
   //   category: "dnd",
   //   species: "Species",
-  //   page: "character-template.html",
+  //   page: "characters/character.html",
   //   image: "",
   //   accent: "#b77d83",
   //   paper: "#ead8d1"
