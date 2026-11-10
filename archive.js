@@ -24,7 +24,7 @@ const characters = [
      subtitle: "A little description or quote.",
      category: "dnd",
      species: "Species",
-     page: "characters/character.html",
+     page: "insertpage",
      image: "",
      accent: "#b77d83",
      paper: "#ead8d1"
