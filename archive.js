@@ -16,9 +16,6 @@ const characters = [
    paper: "#ead8d1"
    },
 
-];
-
-const characters = [
    {
      name: "Character Name",
      subtitle: "A little description or quote.",
