@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- INSERT: A short description of this character -->
+  <meta name="description" content="INSERT CHARACTER DESCRIPTION HERE">
+
+  <!-- INSERT: Character name -->
+  <title>INSERT CHARACTER NAME | The Little Character Library</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!--
+  HOW TO PERSONALIZE THIS PAGE:
+  1. Save a copy with a new filename, e.g. "my-character.html".
+  2. Replace every INSERT placeholder.
+  3. Change the six colour values below to make this character's theme.
+  4. Add your images to assets/characters/your-character/ and update the paths.
+  5. Add the character to js/archive.js so they appear on the homepage.
+
+  IMAGE PATH TIP:
+  From a file inside /characters/, use ../assets/characters/your-character/image.jpg
+-->
+
+<body class="character-page"
+  style="
+    --character-paper: #f5eddf;
+    --character-light: #fffaf1;
+    --character-accent: #b77d83;
+    --character-accent-soft: #ead5d2;
+    --character-ink: #51483f;
+    --character-muted: #887968;
+  ">
+
+  <div class="character-shell">
+    <div class="character-topbar">
+      <a class="back-link" href="../index.html">← Back to the little library</a>
+      <span class="character-number">COLLECTION NO. INSERT NUMBER</span>
+    </div>
+
+    <!-- COVER / IDENTITY -->
+    <header class="character-cover">
+      <div class="headshot-frame">
+        <!-- INSERT: Headshot image path -->
+        <img src="../assets/characters/INSERT-FOLDER/headshot.jpg"
+             alt="Portrait of INSERT CHARACTER NAME"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+        <div class="image-placeholder" style="display:none;">
+          INSERT HEADSHOT HERE
+        </div>
+      </div>
+
+      <div class="cover-copy">
+        <p class="eyebrow">✿ A LITTLE CHARACTER DOSSIER ✿</p>
+        <!-- INSERT: Character name -->
+        <h1>INSERT CHARACTER NAME</h1>
+        <!-- INSERT: Quote, motto, or tagline -->
+        <p class="character-quote">"INSERT A LITTLE QUOTE HERE."</p>
+        <span class="washi-strip">INSERT A TITLE OR LABEL</span>
+
+        <!-- INSERT: Short character introduction -->
+        <p class="cover-intro">
+          INSERT A SHORT INTRODUCTION HERE. A FEW SENTENCES ABOUT WHO THIS
+          CHARACTER IS AND WHAT MAKES THEM THEM.
+        </p>
+
+        <div class="identity-grid">
+          <div class="identity-item"><span>Pronouns</span><strong>INSERT PRONOUNS</strong></div>
+          <div class="identity-item"><span>Age</span><strong>INSERT AGE</strong></div>
+          <div class="identity-item"><span>Species</span><strong>INSERT SPECIES</strong></div>
+          <div class="identity-item"><span>Occupation</span><strong>INSERT OCCUPATION</strong></div>
+        </div>
+      </div>
+      <span class="tape tape-top-left" aria-hidden="true"></span>
+      <span class="doodle doodle-flower" aria-hidden="true">✿</span>
+    </header>
+
+    <main>
+      <!-- REFERENCE COLLECTION -->
+      <section class="scrapbook-section">
+        <span class="section-number">01 / THE REFERENCE COLLECTION</span>
+        <h2>A face to remember</h2>
+        <p class="section-intro">The official reference, plus other little glimpses.</p>
+        <div class="section-rule"></div>
+
+        <!-- INSERT: Main reference sheet path -->
+        <img class="reference-image"
+             src="../assets/characters/INSERT-FOLDER/reference-sheet.jpg"
+             alt="Reference sheet for INSERT CHARACTER NAME">
+
+        <!-- OPTIONAL GALLERY: Duplicate a gallery-item for more art -->
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="../assets/characters/INSERT-FOLDER/gallery-01.jpg"
+                 alt="INSERT DESCRIPTION"
+                 onerror="this.parentElement.style.display='none';">
+            <p>INSERT IMAGE CAPTION</p>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/characters/INSERT-FOLDER/gallery-02.jpg"
+                 alt="INSERT DESCRIPTION"
+                 onerror="this.parentElement.style.display='none';">
+            <p>INSERT IMAGE CAPTION</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERSONALITY -->
+      <section class="scrapbook-section">
+        <span class="section-number">02 / A CURIOUS PERSONALITY</span>
+        <h2>What's tucked inside?</h2>
+        <p class="section-intro">A collection of habits, qualities, and contradictions.</p>
+        <div class="section-rule"></div>
+
+        <h3>Personality traits</h3>
+        <div class="personality-tags">
+          <span class="personality-tag">INSERT TRAIT</span>
+          <span class="personality-tag">INSERT TRAIT</span>
+          <span class="personality-tag">INSERT TRAIT</span>
+          <span class="personality-tag">INSERT TRAIT</span>
+        </div>
+
+        <h3>Strengths</h3>
+        <p>INSERT CHARACTER STRENGTHS HERE.</p>
+
+        <h3>Flaws &amp; weaknesses</h3>
+        <p>INSERT CHARACTER FLAWS HERE.</p>
+
+        <h3>Little quirks</h3>
+        <p>INSERT HABITS, QUIRKS, LIKES, DISLIKES, OR OTHER FUN DETAILS.</p>
+      </section>
+
+      <!-- BACKSTORY -->
+      <section class="scrapbook-section">
+        <span class="section-number">03 / THE STORY SO FAR</span>
+        <h2>Once upon a time...</h2>
+        <p class="section-intro">A history, a beginning, and everything in between.</p>
+        <div class="section-rule"></div>
+
+        <!-- Duplicate a details block to add another chapter.
+             Change the summary text to the chapter title. -->
+        <details class="lore-chapter" open>
+          <summary>Chapter One — INSERT CHAPTER TITLE</summary>
+          <p>INSERT BACKSTORY HERE. This can be as long or as short as you like.</p>
+        </details>
+
+        <details class="lore-chapter">
+          <summary>Chapter Two — INSERT CHAPTER TITLE</summary>
+          <p>INSERT MORE LORE HERE.</p>
+        </details>
+
+        <details class="lore-chapter">
+          <summary>Loose pages &amp; extra notes</summary>
+          <p>INSERT EXTRA LORE, SECRETS, TIMELINES, OR OTHER DETAILS HERE.</p>
+        </details>
+      </section>
+
+      <!-- RELATIONSHIPS -->
+      <section class="scrapbook-section">
+        <span class="section-number">04 / FAMILIAR FACES</span>
+        <h2>People in their orbit</h2>
+        <p class="section-intro">Friends, family, rivals, and the people who make life interesting.</p>
+        <div class="section-rule"></div>
+
+        <div class="relationship-grid">
+          <!-- Duplicate this card for every relationship. -->
+          <article class="relationship-card">
+            <div class="relationship-placeholder" aria-hidden="true">✿</div>
+            <div>
+              <h3>INSERT NAME</h3>
+              <p class="relationship-type">INSERT RELATIONSHIP TYPE</p>
+              <p>INSERT A DESCRIPTION OF THEIR RELATIONSHIP.</p>
+            </div>
+          </article>
+
+          <article class="relationship-card">
+            <div class="relationship-placeholder" aria-hidden="true">♡</div>
+            <div>
+              <h3>INSERT NAME</h3>
+              <p class="relationship-type">INSERT RELATIONSHIP TYPE</p>
+              <p>INSERT A DESCRIPTION OF THEIR RELATIONSHIP.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- STATISTICS -->
+      <section class="scrapbook-section">
+        <span class="section-number">05 / A FEW NUMBERS</span>
+        <h2>Character statistics</h2>
+        <p class="section-intro">An entirely scientific collection of very subjective numbers.</p>
+        <div class="section-rule"></div>
+
+        <div class="stat-group">
+          <h3>Personality</h3>
+          <!-- Change each label and number. Values must be between 0 and 100. -->
+          <div class="stat-row">
+            <span>Kindness</span>
+            <div class="stat-track"><div class="stat-fill" style="--stat-value: 80%;"></div></div>
+            <span class="stat-value">80/100</span>
+          </div>
+          <div class="stat-row">
+            <span>Confidence</span>
+            <div class="stat-track"><div class="stat-fill" style="--stat-value: 45%;"></div></div>
+            <span class="stat-value">45/100</span>
+          </div>
+          <div class="stat-row">
+            <span>Patience</span>
+            <div class="stat-track"><div class="stat-fill" style="--stat-value: 60%;"></div></div>
+            <span class="stat-value">60/100</span>
+          </div>
+          <div class="stat-row">
+            <span>Empathy</span>
+            <div class="stat-track"><div class="stat-fill" style="--stat-value: 90%;"></div></div>
+            <span class="stat-value">90/100</span>
+          </div>
+        </div>
+
+        <div class="stat-group">
+          <h3>Physical &amp; abilities</h3>
+          <div class="stat-row">
+            <span>Strength</span>
+            <div class="stat-track"><div class="stat-fill" style="--stat-value: 65%;"></div></div>
+            <span class="stat-value">65/100</span>
+          </div>
+          <div class="stat-row">
+            <span>Intelligence</span>
+            <div class="stat-track"><div class="stat-fill" style="--stat-value: 85%;"></div></div>
+            <span class="stat-value">85/100</span>
+          </div>
+          <div class="stat-row">
+            <span>Dexterity</span>
+            <div class="stat-track"><div class="stat-fill" style="--stat-value: 50%;"></div></div>
+            <span class="stat-value">50/100</span>
+          </div>
+          <div class="stat-row">
+            <span>Charisma</span>
+            <div class="stat-track"><div class="stat-fill" style="--stat-value: 75%;"></div></div>
+            <span class="stat-value">75/100</span>
+          </div>
+        </div>
+        <p class="section-intro">Optional: change these categories to suit the character. These are not D&amp;D ability scores unless you want them to be!</p>
+      </section>
+
+      <!-- CREDITS -->
+      <section class="scrapbook-section">
+        <span class="section-number">06 / THE FINE PRINT</span>
+        <h2>Credits &amp; keepsakes</h2>
+        <div class="section-rule"></div>
+        <ul class="credits-list">
+          <li>Character design: INSERT CREDIT</li>
+          <li>Reference sheet artist: INSERT CREDIT</li>
+          <li>Other artwork: INSERT CREDIT</li>
+          <li>Profile layout / archive: INSERT YOUR CREDIT OR WEBSITE NAME</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="character-footer">
+      <div class="flourish">✧ ── ✿ ── ✧</div>
+      <p>Another story safely tucked away.</p>
+      <a class="back-link" href="../index.html">Return to the library</a>
+    </footer>
+  </div>
+</body>
+</html>
