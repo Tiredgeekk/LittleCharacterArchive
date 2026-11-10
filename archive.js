@@ -5,34 +5,30 @@
    ========================================================== */
 
 const characters = [
-  // ADD YOUR FIRST CHARACTER HERE by copying this example:
-  //
-  // {
-  //   name: "Test Character",
-  //   subtitle: "a worshless test subject.",
-  //   category: "other",
-  //   species: "test",
-  //   page: "characters/testcharacter.html",
-  //   image: "https://i.pinimg.com/1200x/3e/fd/a3/3efda3a3c2b61df456c2825169b02596.jpg",
-  //   accent: "#b77d83",
-  //   paper: "#ead8d1"
-  // },
+   {
+   name: "Test Character",
+   subtitle: "a worshless test subject.",
+   category: "other",
+   species: "test",
+   page: "characters/testcharacter.html",
+   image: "https://i.pinimg.com/1200x/3e/fd/a3/3efda3a3c2b61df456c2825169b02596.jpg",
+   accent: "#b77d83",
+   paper: "#ead8d1"
+   },
 
 ];
 
 const characters = [
-  // ADD YOUR FIRST CHARACTER HERE by copying this example:
-  //
-  // {
-  //   name: "Character Name",
-  //   subtitle: "A little description or quote.",
-  //   category: "dnd",
-  //   species: "Species",
-  //   page: "characters/character.html",
-  //   image: "",
-  //   accent: "#b77d83",
-  //   paper: "#ead8d1"
-  // },
+   {
+     name: "Character Name",
+     subtitle: "A little description or quote.",
+     category: "dnd",
+     species: "Species",
+     page: "characters/character.html",
+     image: "",
+     accent: "#b77d83",
+     paper: "#ead8d1"
+   },
 
 ];
 
