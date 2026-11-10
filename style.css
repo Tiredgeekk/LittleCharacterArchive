@@ -358,3 +358,339 @@ details.lore-chapter p { margin-bottom: 0; }
   .character-topbar { align-items: flex-start; }
   .stat-row { grid-template-columns: 95px 1fr 35px; gap: 7px; }
 }
+
+
+/* ==========================================================
+   NEW SCRAPBOOK PAGES
+   Homepage, About This Place, and The Library
+   ========================================================== */
+
+/* HOME PAGE */
+
+.home-page .welcome-note {
+  margin-bottom: 45px;
+}
+
+.home-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin: 35px 0 55px;
+}
+
+.home-link-card {
+  display: block;
+  padding: 30px;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.home-link-card:first-child {
+  transform: rotate(-1deg);
+  background: #f5e8df;
+}
+
+.home-link-card:last-child {
+  transform: rotate(1deg);
+  background: #e9eadf;
+}
+
+.home-link-card:hover {
+  transform: translateY(-6px) rotate(0);
+  box-shadow: 8px 10px 0 rgba(91, 71, 53, .15);
+}
+
+.home-link-card h2 {
+  margin: 8px 0;
+  font: bold clamp(1.5rem, 3vw, 2rem) var(--serif);
+}
+
+.home-link-card p:not(.eyebrow) {
+  color: var(--muted-ink);
+}
+
+.home-link-icon {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 2.5rem;
+}
+
+.home-link-card .handwritten {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.little-note {
+  position: relative;
+}
+
+
+/* ABOUT PAGE */
+
+.journal-layout {
+  width: min(850px, 100%);
+  margin: 0 auto;
+}
+
+.journal-page {
+  margin: 35px 0;
+  padding: clamp(24px, 5vw, 48px);
+  background-color: #fffaf0;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    rgba(183, 125, 131, .13) 32px
+  );
+}
+
+.journal-page:nth-child(odd) {
+  transform: rotate(-.45deg);
+}
+
+.journal-page:nth-child(even) {
+  transform: rotate(.55deg);
+  background-color: #f4eee2;
+}
+
+.journal-date {
+  margin-bottom: 18px;
+  color: var(--muted-ink);
+  font-size: .68rem;
+  font-weight: bold;
+  letter-spacing: .15em;
+}
+
+.journal-page h2 {
+  margin: 5px 0 20px;
+  font: bold clamp(1.7rem, 4vw, 2.4rem) var(--serif);
+}
+
+.journal-page p {
+  max-width: 690px;
+  line-height: 2;
+}
+
+.journal-page .handwritten {
+  margin-top: 22px;
+}
+
+.margin-doodle {
+  position: absolute;
+  right: 28px;
+  bottom: 25px;
+  color: var(--accent);
+  font-size: 2rem;
+  transform: rotate(15deg);
+}
+
+.sticky-note {
+  max-width: 340px;
+  margin: 25px auto 10px;
+  padding: 20px 24px;
+  background: #f2e6b9;
+  box-shadow: 3px 4px 0 rgba(91, 71, 53, .12);
+  transform: rotate(1.5deg);
+}
+
+.sticky-note ul,
+.decorated-list {
+  padding-left: 22px;
+}
+
+.sticky-note li,
+.decorated-list li {
+  margin: 7px 0;
+}
+
+.decorated-list li::marker {
+  color: var(--accent);
+}
+
+.closing-note {
+  text-align: center;
+  background: #f4e5e2;
+}
+
+.closing-note p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.closing-flower {
+  right: 8%;
+  bottom: 15%;
+  font-size: 2.3rem;
+}
+
+
+/* LIBRARY PAGE */
+
+.library-intro {
+  max-width: 760px;
+  margin: 0 auto 35px;
+  padding: 28px clamp(20px, 5vw, 42px);
+  text-align: center;
+  transform: rotate(.35deg);
+}
+
+.library-intro h2 {
+  margin: 8px 0;
+  font: bold clamp(1.7rem, 4vw, 2.4rem) var(--serif);
+}
+
+.library-intro p {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.library-controls {
+  padding: 22px;
+  margin-bottom: 40px;
+  transform: rotate(-.2deg);
+}
+
+.library-controls label {
+  display: block;
+  margin-bottom: 8px;
+  font: bold 1rem var(--serif);
+}
+
+.library-controls input {
+  width: 100%;
+  padding: 13px 15px;
+  color: var(--ink);
+  background: var(--paper-light);
+  border: 1px solid var(--edge);
+  outline-color: var(--accent);
+}
+
+.filter-heading {
+  margin: 20px 0 9px;
+  font: bold .9rem var(--serif);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.filter-buttons .filter-button {
+  padding: 8px 13px;
+  border: 1px dashed var(--edge);
+  border-radius: 2px 8px 3px 8px;
+  background: var(--paper-light);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.filter-buttons .filter-button:hover,
+.filter-buttons .filter-button.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  transform: rotate(-1deg) translateY(-2px);
+}
+
+.shelf-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.shelf-heading h2 {
+  margin: 0;
+  font: bold clamp(1.7rem, 4vw, 2.4rem) var(--serif);
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 28px 23px;
+  margin-bottom: 45px;
+}
+
+.empty-library {
+  padding: 40px 25px;
+  margin: 30px auto 55px;
+  max-width: 650px;
+  text-align: center;
+  background: var(--paper);
+  border: 1px dashed var(--edge);
+}
+
+.empty-library[hidden] {
+  display: none !important;
+}
+
+.empty-library h3 {
+  font: bold 1.5rem var(--serif);
+}
+
+.empty-icon {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 2.8rem;
+}
+
+.scrapbook-button {
+  display: inline-block;
+  padding: 10px 18px;
+  margin-top: 12px;
+  color: var(--ink);
+  background: var(--paper-light);
+  border: 1px dashed var(--accent);
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+}
+
+.scrapbook-button:hover {
+  background: var(--accent-soft);
+  transform: translateY(-3px) rotate(-1deg);
+}
+
+.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* RESPONSIVE LAYOUT */
+
+@media (max-width: 680px) {
+  .home-links {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .home-link-card:first-child,
+  .home-link-card:last-child {
+    transform: none;
+  }
+
+  .journal-page {
+    margin: 25px 0;
+  }
+
+  .shelf-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .library-controls {
+    padding: 17px;
+  }
+
+  .filter-buttons {
+    gap: 7px;
+  }
+}
