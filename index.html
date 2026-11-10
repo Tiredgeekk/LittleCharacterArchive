@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A little library of characters, stories, and other lovely things.">
+  <title>The Little Character Library</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/archive.js" defer></script>
+</head>
+<body class="home-page">
+  <div class="site-wrap">
+    <header class="site-header paper-panel">
+      <p class="eyebrow">✿ A PERSONAL COLLECTION OF LITTLE LIVES ✿</p>
+      <h1 class="site-title">The Little Character Library</h1>
+      <p class="site-subtitle">A home for stories, daydreams, and all my beloved characters.</p>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="index.html">The Library</a>
+        <a class="nav-link" href="#about">About this place</a>
+        <a class="nav-link" href="#collection">The collection</a>
+      </nav>
+      <span class="tape tape-top-left" aria-hidden="true"></span>
+      <span class="tape tape-top-right" aria-hidden="true"></span>
+      <span class="doodle doodle-flower" aria-hidden="true">✿</span>
+    </header>
+
+    <main>
+      <section class="welcome-note paper-panel" id="about">
+        <div class="section-kicker">A NOTE FROM THE LIBRARIAN</div>
+        <h2>Come on in, have a look around.</h2>
+        <p>
+          Welcome to my little corner of the internet! This is a growing collection
+          of original characters, D&amp;D adventurers, and other assorted darlings.
+          Every character has a story worth keeping.
+        </p>
+        <p class="handwritten">Please mind the paper scraps. They're part of the decor. ♡</p>
+        <span class="paperclip" aria-hidden="true">⌇</span>
+      </section>
+
+      <section class="collection-section" id="collection">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE SHELVES</p>
+            <h2>Browse the collection</h2>
+          </div>
+          <span class="shelf-stamp" aria-hidden="true">EST.<br>2026</span>
+        </div>
+
+        <div class="collection-tools paper-panel">
+          <label class="search-label" for="character-search">Find a little someone</label>
+          <input id="character-search" type="search" placeholder="Search names, species, worlds..." autocomplete="off">
+          <div class="filter-row" id="filter-buttons" aria-label="Filter characters">
+            <button class="filter-button active" type="button" data-filter="all">All books</button>
+            <button class="filter-button" type="button" data-filter="original">Original characters</button>
+            <button class="filter-button" type="button" data-filter="dnd">D&amp;D characters</button>
+            <button class="filter-button" type="button" data-filter="fandom">Fandom</button>
+          </div>
+        </div>
+
+        <!-- Character cards are added in js/archive.js. You do not need to edit this area. -->
+        <div class="book-grid" id="character-grid" aria-live="polite"></div>
+        <p class="empty-message" id="empty-message" hidden>
+          No books found! Try another search, or add a character to the collection.
+        </p>
+      </section>
+
+      <section class="little-note paper-panel">
+        <p class="eyebrow">A LITTLE REMINDER</p>
+        <p>Every book on these shelves belongs to a character with their own world, history, and heart.</p>
+        <div class="tiny-flourish" aria-hidden="true">✧ ── ✿ ── ✧</div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Made with care, curiosity, and an unreasonable amount of paper scraps.</p>
+      <p>✿ The Little Character Library ✿</p>
+    </footer>
+  </div>
+</body>
+</html>
