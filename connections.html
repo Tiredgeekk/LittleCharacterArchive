@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connections | The Little Character Library</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="connections.js" defer></script>
+</head>
+
+<body class="connections-page">
+  <div class="site-wrap">
+
+    <header class="site-header paper-panel">
+      <p class="eyebrow">✿ THE LITTLE CHARACTER LIBRARY ✿</p>
+      <h1 class="site-title">The Connections Archive</h1>
+      <p class="site-subtitle">Little lives, tangled together.</p>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About This Place</a>
+        <a class="nav-link" href="library.html">The Library</a>
+        <a class="nav-link active" href="connections.html">Connections</a>
+      </nav>
+
+      <span class="tape tape-top-left" aria-hidden="true"></span>
+      <span class="tape tape-top-right" aria-hidden="true"></span>
+    </header>
+
+    <main>
+
+      <section class="library-intro paper-panel">
+        <p class="eyebrow">THE PEOPLE BEHIND THE STORIES</p>
+        <h2>No one exists all on their own.</h2>
+        <p>
+          Families, friendships, rivalries, found families, and all the
+          wonderfully complicated things in between.
+        </p>
+        <p class="handwritten">Every connection has a story. ♡</p>
+      </section>
+
+      <section class="connection-directory">
+        <div class="shelf-heading">
+          <h2>The Collections</h2>
+          <span class="handwritten" id="group-count">A little family of stories</span>
+        </div>
+
+        <div id="connection-directory-grid" class="connection-directory-grid">
+          <div class="empty-library paper-panel">
+            <span class="empty-icon">♡</span>
+            <h3>Waiting for connections...</h3>
+            <p>
+              Once you add character groups to the archive,
+              they'll find their way onto these shelves.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>✿ The Little Character Library ✿</p>
+      <p><a href="index.html">Back to the welcome desk</a></p>
+    </footer>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("connection-directory-grid");
+      const count = document.getElementById("group-count");
+
+      if (typeof archiveGroups === "undefined") return;
+
+      const groups = archiveGroups;
+      count.textContent = `${groups.length} ${groups.length === 1 ? "collection" : "collections"}`;
+
+      if (groups.length === 0) return;
+
+      grid.replaceChildren();
+
+      groups.forEach(group => {
+        const card = document.createElement("a");
+        card.className = "connection-directory-card paper-panel";
+        card.href = `group.html?group=${encodeURIComponent(group.id)}`;
+
+        const decoration = document.createElement("span");
+        decoration.className = "directory-icon";
+        decoration.textContent = "♡";
+
+        const title = document.createElement("h3");
+        title.textContent = group.name;
+
+        const description = document.createElement("p");
+        description.textContent = group.description || "A collection of connected characters.";
+
+        const members = document.createElement("span");
+        members.className = "directory-member-count";
+        members.textContent = `${group.members.length} connected characters`;
+
+        const linkText = document.createElement("span");
+        linkText.className = "handwritten";
+        linkText.textContent = "Open collection →";
+
+        card.append(decoration, title, description, members, linkText);
+        grid.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>
