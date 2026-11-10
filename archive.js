@@ -1,98 +1,123 @@
+
 /* ==========================================================
-   YOUR CHARACTER SHELF
-   Add, remove, or edit characters in the list below.
-   Each character needs a name, category, and page link.
+   THE LITTLE CHARACTER LIBRARY
+   Add your characters to this list!
    ========================================================== */
 
 const characters = [
-  // ADD YOUR FIRST CHARACTER HERE by copying this example and removing the //.
+  // ADD YOUR FIRST CHARACTER HERE by copying this example:
+  //
   // {
   //   name: "Character Name",
-  //   subtitle: "A short quote, title, or little description.",
-  //   category: "original", // Use: original, dnd, or fandom
+  //   subtitle: "A little description or quote.",
+  //   category: "dnd",
   //   species: "Species",
-  //   page: "characters/your-character.html",
-  //   image: "assets/characters/your-character/headshot.jpg",
+  //   page: "character-template.html",
+  //   image: "",
   //   accent: "#b77d83",
   //   paper: "#ead8d1"
   // },
+
 ];
 
 const grid = document.getElementById("character-grid");
 const searchInput = document.getElementById("character-search");
 const filterButtons = document.querySelectorAll(".filter-button");
-const emptyMessage = document.getElementById("empty-message");
+const emptyMessage = document.getElementById("empty-library");
+const countDisplay = document.getElementById("character-count");
 
-let activeFilter = "all";
+if (grid && searchInput && emptyMessage) {
+  let activeFilter = "all";
 
-function makeCharacterCard(character) {
-  const card = document.createElement("a");
-  card.className = "book-card";
-  card.href = character.page;
-  card.style.setProperty("--card-accent", character.accent || "#b77d83");
-  card.style.setProperty("--card-paper", character.paper || "#ead8d1");
+  function makeCharacterCard(character) {
+    const card = document.createElement("a");
+    card.className = "book-card";
+    card.href = character.page || "#";
+    card.style.setProperty("--card-accent", character.accent || "#b77d83");
+    card.style.setProperty("--card-paper", character.paper || "#ead8d1");
 
-  const cover = document.createElement("div");
-  cover.className = "book-cover";
+    const cover = document.createElement("div");
+    cover.className = "book-cover";
 
-  if (character.image) {
-    const image = document.createElement("img");
-    image.src = character.image;
-    image.alt = `Portrait of ${character.name}`;
-    cover.appendChild(image);
-  } else {
-    const placeholder = document.createElement("div");
-    placeholder.className = "book-cover-placeholder";
-    placeholder.textContent = "✿ Add a character portrait here ✿";
-    cover.appendChild(placeholder);
+    if (character.image) {
+      const image = document.createElement("img");
+      image.src = character.image;
+      image.alt = `Portrait of ${character.name}`;
+      cover.appendChild(image);
+    } else {
+      const placeholder = document.createElement("div");
+      placeholder.className = "book-cover-placeholder";
+      placeholder.textContent = "✿ Add a character portrait here ✿";
+      cover.appendChild(placeholder);
+    }
+
+    const ribbon = document.createElement("span");
+    ribbon.className = "book-ribbon";
+    ribbon.textContent = character.category || "character";
+    cover.appendChild(ribbon);
+
+    const title = document.createElement("h3");
+    title.textContent = character.name;
+
+    const subtitle = document.createElement("p");
+    subtitle.className = "book-subtitle";
+    subtitle.textContent = character.subtitle || "";
+
+    const meta = document.createElement("div");
+    meta.className = "book-meta";
+
+    const species = document.createElement("span");
+    species.textContent = character.species || "Unlisted";
+
+    const category = document.createElement("span");
+    category.textContent = character.category || "Other";
+
+    meta.append(species, category);
+    card.append(cover, title, subtitle, meta);
+
+    return card;
   }
 
-  const ribbon = document.createElement("span");
-  ribbon.className = "book-ribbon";
-  ribbon.textContent = character.category || "character";
-  cover.appendChild(ribbon);
+  function renderCharacters() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
 
-  const title = document.createElement("h3");
-  title.textContent = character.name;
+    const filtered = characters.filter(character => {
+      const matchesFilter =
+        activeFilter === "all" ||
+        character.category === activeFilter;
 
-  const subtitle = document.createElement("p");
-  subtitle.className = "book-subtitle";
-  subtitle.textContent = character.subtitle || "";
+      const searchable = [
+        character.name,
+        character.subtitle,
+        character.species,
+        character.category
+      ].join(" ").toLowerCase();
 
-  const meta = document.createElement("div");
-  meta.className = "book-meta";
-  const species = document.createElement("span");
-  species.textContent = character.species || "Unlisted";
-  const category = document.createElement("span");
-  category.textContent = character.category || "Other";
-  meta.append(species, category);
+      return matchesFilter && searchable.includes(searchTerm);
+    });
 
-  card.append(cover, title, subtitle, meta);
-  return card;
-}
+    grid.replaceChildren(...filtered.map(makeCharacterCard));
+    emptyMessage.hidden = filtered.length > 0;
 
-function renderCharacters() {
-  const searchTerm = searchInput.value.toLowerCase().trim();
+    if (countDisplay) {
+      countDisplay.textContent =
+        `${filtered.length} ${filtered.length === 1 ? "character" : "characters"} on this shelf`;
+    }
+  }
 
-  const filtered = characters.filter(character => {
-    const matchesFilter = activeFilter === "all" || character.category === activeFilter;
-    const searchable = [
-      character.name, character.subtitle, character.species, character.category
-    ].join(" ").toLowerCase();
-    return matchesFilter && searchable.includes(searchTerm);
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      activeFilter = button.dataset.category || "all";
+
+      filterButtons.forEach(item => {
+        item.classList.toggle("active", item === button);
+      });
+
+      renderCharacters();
+    });
   });
 
-  grid.replaceChildren(...filtered.map(makeCharacterCard));
-  emptyMessage.hidden = filtered.length > 0;
+  searchInput.addEventListener("input", renderCharacters);
+
+  renderCharacters();
 }
-
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    activeFilter = button.dataset.filter;
-    filterButtons.forEach(item => item.classList.toggle("active", item === button));
-    renderCharacters();
-  });
-});
-
-searchInput.addEventListener("input", renderCharacters);
-renderCharacters();
