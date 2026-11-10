@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Group | The Little Character Library</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="connections.js" defer></script>
+</head>
+
+<body class="group-page">
+  <div class="site-wrap">
+
+    <header class="site-header paper-panel">
+      <p class="eyebrow">✿ THE LITTLE CHARACTER LIBRARY ✿</p>
+      <h1 class="site-title">A Little Collection</h1>
+      <p class="site-subtitle">A scrapbook of connected lives.</p>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About This Place</a>
+        <a class="nav-link" href="library.html">The Library</a>
+        <a class="nav-link active" href="connections.html">Connections</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back-link" href="connections.html">← Back to the Connections Archive</a>
+
+      <section class="group-intro paper-panel">
+        <p class="eyebrow">A CONNECTED COLLECTION</p>
+        <h2 id="group-title">Loading collection...</h2>
+        <p id="group-description"></p>
+        <p class="handwritten" id="group-member-count"></p>
+      </section>
+
+      <section class="group-members-section">
+        <h2>Everyone in this collection</h2>
+        <div id="group-members" class="group-member-grid"></div>
+      </section>
+
+      <section class="group-relationships paper-panel">
+        <h2>How they're connected</h2>
+        <div id="group-relationship-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>✿ The Little Character Library ✿</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const groupId = params.get("group");
+
+      const group = typeof archiveGroups !== "undefined"
+        ? archiveGroups.find(item => item.id === groupId)
+        : null;
+
+      const title = document.getElementById("group-title");
+      const description = document.getElementById("group-description");
+      const count = document.getElementById("group-member-count");
+      const membersContainer = document.getElementById("group-members");
+      const relationshipsContainer = document.getElementById("group-relationship-list");
+
+      if (!group) {
+        title.textContent = "Collection not found";
+        description.textContent = "It looks like this collection hasn't been added yet.";
+        count.textContent = "";
+        return;
+      }
+
+      document.title = `${group.name} | The Little Character Library`;
+      title.textContent = group.name;
+      description.textContent = group.description || "";
+      count.textContent = `${group.members.length} connected characters ♡`;
+
+      const members = group.members
+        .map(id => archiveCharacters.find(character => character.id === id))
+        .filter(Boolean);
+
+      members.forEach(character => {
+        const card = document.createElement("a");
+        card.className = "group-member-card paper-panel";
+        card.href = character.page;
+
+        if (character.image) {
+          const image = document.createElement("img");
+          image.src = character.image;
+          image.alt = `Portrait of ${character.name}`;
+          card.appendChild(image);
+        } else {
+          const placeholder = document.createElement("div");
+          placeholder.className = "group-member-placeholder";
+          placeholder.textContent = "✿";
+          card.appendChild(placeholder);
+        }
+
+        const name = document.createElement("h3");
+        name.textContent = character.name;
+
+        const subtitle = document.createElement("p");
+        subtitle.textContent = character.subtitle || character.species || "";
+
+        card.append(name, subtitle);
+        membersContainer.appendChild(card);
+      });
+
+      const relationships = [];
+
+      members.forEach(character => {
+        (character.relationships || []).forEach(relationship => {
+          if (!group.members.includes(relationship.characterId)) return;
+
+          const other = archiveCharacters.find(
+            item => item.id === relationship.characterId
+          );
+
+          if (!other) return;
+
+          relationships.push({
+            first: character.name,
+            second: other.name,
+            label: relationship.label
+          });
+        });
+      });
+
+      if (relationships.length === 0) {
+        relationshipsContainer.textContent =
+          "Relationship details haven't been added yet.";
+      } else {
+        relationships.forEach(relationship => {
+          const item = document.createElement("p");
+          item.className = "group-relationship-entry";
+          item.textContent =
+            `${relationship.first} → ${relationship.second}: ${relationship.label}`;
+          relationshipsContainer.appendChild(item);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
